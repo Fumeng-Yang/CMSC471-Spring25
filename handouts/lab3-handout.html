@@ -1837,23 +1837,33 @@ whether the data is loaded!</p>
 <div id="creating-a-scatterplot" class="section level3">
 <h3>Creating a scatterplot</h3>
 <p>Next, we need to think about this core function
-<code>updateVis</code>. We have four data behaviors:<br />
-- When first loading the dataset, we need to bind each data point to a
+<code>updateVis</code>. We have four data behaviors:</p>
+<ul>
+<li>When first loading the dataset, we need to bind each data point to a
 <code>circle</code><br />
-- Similarly, when addinng new data points (within [0, 100]), we need to
-bind these new data points to new <code>circle</code>s<br />
-- We may move data points. In other words, the attributes (e.g.,
+</li>
+<li>Similarly, when addinng new data points (within [0, 100]), we need
+to bind these new data points to new <code>circle</code>s<br />
+</li>
+<li>We may move data points. In other words, the attributes (e.g.,
 <code>cy</code>, <code>cx</code>) associated with the circle SVG
 elements might change<br />
-- Remove the last data point (or a random data point) in the array
-<code>currentData</code>, we need to remove the binding</p>
+</li>
+<li>Remove the last data point (or a random data point) in the array
+<code>currentData</code>, we need to remove the binding</li>
+</ul>
 <p>The <code>.join()</code> function is D3’s newest way to handle all
 three data scenarios (Note you could also use this function in Lab
-2):<br />
-- <code>enter</code>: Creates new DOM elements for new data points<br />
-- <code>update</code>: Modifies existing DOM elements when their data
+2):</p>
+<ul>
+<li><code>enter</code>: Creates new DOM elements for new data
+points<br />
+</li>
+<li><code>update</code>: Modifies existing DOM elements when their data
 changes<br />
-- <code>exit</code>: Removes DOM elements when their data is gone</p>
+</li>
+<li><code>exit</code>: Removes DOM elements when their data is gone</li>
+</ul>
 <p>The .data() function performs the “data join” - it matches data array
 elements to DOM elements using a key function (by default, <strong>array
 index</strong>).</p>
