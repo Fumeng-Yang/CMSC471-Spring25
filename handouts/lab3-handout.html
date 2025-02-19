@@ -1871,7 +1871,7 @@ index</strong>).</p>
 <span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>   <span class="co">// Now, the class point is important. </span></span>
 <span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>   <span class="co">// To make sure we can manipulate circles, we need to select all .point elements. </span></span>
 <span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>   <span class="co">// And thus, all circles created should have this class name (see below).</span></span>
-<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>   d3<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&#39;.point&#39;</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>   svg<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&#39;.point&#39;</span>)</span>
 <span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a>   <span class="co">// using the global variable</span></span>
 <span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a>   <span class="op">.</span><span class="fu">data</span>(currentData)</span>
 <span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a>   <span class="op">.</span><span class="fu">join</span>(</span>
@@ -1882,7 +1882,7 @@ index</strong>).</p>
 <span id="cb7-13"><a href="#cb7-13" tabindex="-1"></a>}</span></code></pre></div>
 <p>or a different way is to use arrow function definitions</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="kw">function</span> <span class="fu">updateVis</span>(){</span>
-<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>   d3<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&#39;.point&#39;</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>   svg<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&#39;.point&#39;</span>)</span>
 <span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>   <span class="co">// using the global variable</span></span>
 <span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a>   <span class="op">.</span><span class="fu">data</span>(currentData)</span>
 <span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a>   <span class="op">.</span><span class="fu">join</span>(</span>
