@@ -1832,9 +1832,9 @@ handling, clearly logging any issues that occur when loading data.</p>
 <code>createVis()</code> function.</p>
 <div id="step-1-set-up-the-svg" class="section level4">
 <h4>Step 1: Set Up the SVG</h4>
-<p>Start by copying the first few blocks of code. However, since we
-already have a <code>&lt;div id=&quot;vis&quot;&gt;</code> in our
-<code>index.html</code>, we <strong>replace</strong>:</p>
+<p>Start by <strong>copying the first few blocks of code</strong>.
+However, since we already have a <code>&lt;div id=&quot;vis&quot;&gt;</code> in
+our <code>index.html</code>, we <strong>replace</strong>:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="kw">const</span> svg <span class="op">=</span> d3<span class="op">.</span><span class="fu">create</span>(<span class="st">&quot;svg&quot;</span>)</span></code></pre></div>
 <p>with:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="kw">const</span> svg <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;#vis&quot;</span>)<span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;svg&quot;</span>)</span></code></pre></div>
@@ -2007,7 +2007,8 @@ attach election data to them.</p>
 <h4>Step 3: Merge Election Data</h4>
 <p>Now it’s time to combine the map data (<code>us</code>) with election
 results (<code>2024_results.json</code>). Luckily, both datasets use
-<strong>matching state IDs</strong>, making this process easier.</p>
+<strong>matching state IDs</strong>, making this process easier. Note:
+these two blocks should be called before you draw the map.</p>
 <p>Here’s a simple merge loop:</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="kw">let</span> states_topo <span class="op">=</span> topojson<span class="op">.</span><span class="fu">feature</span>(us<span class="op">,</span> us<span class="op">.</span><span class="at">objects</span><span class="op">.</span><span class="at">states</span>)<span class="op">;</span></span>
 <span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a></span>
@@ -2032,7 +2033,7 @@ Also, since <code>states_topo</code> is a reference to the parsed
 let’s complete the rest of the static map setup.</p>
 <p>Copy the remaining blocks from the example:</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a>states<span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;title&quot;</span>)</span>
-<span id="cb17-2"><a href="#cb17-2" tabindex="-1"></a>    <span class="op">.</span><span class="fu">text</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">properties</span><span class="op">.</span><span class="at">name</span>)<span class="op">;</span> <span class="co">// You can change this to d.properties.state_info.name later</span></span>
+<span id="cb17-2"><a href="#cb17-2" tabindex="-1"></a>    <span class="op">.</span><span class="fu">text</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">properties</span><span class="op">.</span><span class="at">name</span>)<span class="op">;</span> <span class="co">// We&#39;ll change this to d.properties.state_info.[whatever] later</span></span>
 <span id="cb17-3"><a href="#cb17-3" tabindex="-1"></a></span>
 <span id="cb17-4"><a href="#cb17-4" tabindex="-1"></a>g<span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;path&quot;</span>)</span>
 <span id="cb17-5"><a href="#cb17-5" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;none&quot;</span>)</span>
